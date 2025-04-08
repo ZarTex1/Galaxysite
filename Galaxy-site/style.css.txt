@@ -1,0 +1,51 @@
+body {
+  background: radial-gradient(circle, #0d0d1a, #000);
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.galaxy {
+  background-color: rgba(255, 255, 255, 0.05);
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.galaxy:hover {
+  transform: scale(1.02);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.distance {
+  font-weight: bold;
+  color: #00d4ff;
+}
+
+button {
+  padding: 10px 20px;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  background-color: #00d4ff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #00aacc;
+}

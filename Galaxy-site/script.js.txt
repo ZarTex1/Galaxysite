@@ -1,0 +1,35 @@
+const galaxies = document.querySelectorAll('.galaxy');
+const button = document.getElementById('unitToggle');
+
+const UNITS = ['световых лет', 'парсеков', 'километров'];
+let currentUnitIndex = 0;
+
+function convertDistance(ly, unit) {
+  switch (unit) {
+    case 'световых лет':
+      return ly.toLocaleString('ru-RU', { maximumFractionDigits: 0 });
+    case 'парсеков':
+      return (ly * 0.3066).toLocaleString('ru-RU', { maximumFractionDigits: 0 });
+    case 'километров':
+      return (ly * 9.461e12).toExponential(2).replace('e+', ' × 10^');
+    default:
+      return ly;
+  }
+}
+
+button.addEventListener('click', () => {
+  currentUnitIndex = (currentUnitIndex + 1) % UNITS.length;
+  const unit = UNITS[currentUnitIndex];
+
+  galaxies.forEach(galaxy => {
+    const ly = parseFloat(galaxy.dataset.ly);
+    const distanceElem = galaxy.querySelector('.distance');
+    const unitElem = galaxy.querySelector('.unit');
+
+    distanceElem.textContent = convertDistance(ly, unit);
+    unitElem.textContent = unit;
+  });
+
+  const nextUnit = UNITS[(currentUnitIndex + 1) % UNITS.length];
+  button.textContent = `Показать в ${nextUnit}`;
+});
